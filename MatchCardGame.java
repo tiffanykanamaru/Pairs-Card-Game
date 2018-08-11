@@ -46,22 +46,18 @@ public class MatchCardGame {
 
 	// converts the state of the board to appropriate String representation
 	public String boardToString(){
-
 		for (int i = 0; i<n; i++)
 		{
-			if (!cardFlipped[i])
-			{
+			if (!cardFlipped[i]){
 				System.out.print(i + " ");
 			}
 
-			else
-			{
+			else{
 				System.out.print(cards[i] + " ");
 			}
 			
 			count++;
-			if (count > 3)
-			{
+			if (count > 3){
 				count = 0;
 				System.out.println();
 			}
@@ -153,8 +149,5 @@ public class MatchCardGame {
 		
 	}
 
-	private char getCard(){
-		return current;
-	}
 
 }
