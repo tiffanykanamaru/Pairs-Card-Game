@@ -50,12 +50,9 @@ public class MatchCardGame {
 		{
 			if (!cardFlipped[i]){
 				System.out.print(i + " ");
-			}
-
-			else{
+			} else{
 				System.out.print(cards[i] + " ");
 			}
-			
 			count++;
 			if (count > 3){
 				count = 0;
@@ -77,7 +74,8 @@ public class MatchCardGame {
 			return false;
 		} else { // othersie, flip card face-up
 			cardFlipped[i] = true;
-			flips++; // increment number of flips
+			flips++; // increment number of flips;
+
 			// store odd card as previous card
 			if (flips%2 != 0){
 				previous = cards[i];
@@ -87,36 +85,33 @@ public class MatchCardGame {
 				current = cards[i];
 				indexCurrent = i;
 			}
-
 			return true;
 		}
 	}
 
 	// returns true if the previous pair was a match
-	public boolean wasMatch(){
+	public boolean wasMatch(){     	
 		if (flips%2 == 0){
 			if (previous == current){
 				return true;
 			}
-			
 		}
 		return false;
 	}
 
 	// returns the face of the previously flipped card as a char
 	public char previousFlipIdentity(){
-		if (flips%2 == 0){
-			return current;
+		if (flips%2 != 0){
+			return previous;
 		}
 		else {
-			return previous;
+			return current;
 		}
 	}
 
 	public void flipMismatch(){
 		cardFlipped[indexPrevious] = false;
 		cardFlipped[indexCurrent] = false;
-
 	}
 
 	// returns true if all cards have been matched, returns false otherwise
