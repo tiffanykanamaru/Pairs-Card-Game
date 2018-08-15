@@ -8,7 +8,7 @@ public class PlayCard {
         int n = 16; //game size
         MatchCardGame g1 = new MatchCardGame(n);
         //g1.shuffleCards();
-        /*
+        
         while(!g1.gameOver()) {
           //print board status
           System.out.println(g1.boardToString());
@@ -37,7 +37,7 @@ public class PlayCard {
         
         //Report the score
         System.out.println("The game took " + g1.getFlips() + " flips.");
-*/
+
         //Using the AIs
         int count;
 
