@@ -52,8 +52,9 @@ public class PlayCard {
         System.out.println("The good AI took " + count + " flips.");
         
         //Using MCs
-        int N = 1;
-        //System.out.println("The bad AI took " + randomMC(N) + " flips on average.");
+        //int N = 1000;
+        int N = 10;
+        System.out.println("The bad AI took " + randomMC(N) + " flips on average.");
         //System.out.println("The good AI took " + goodMC(N) + " flips on average.");
     }
     public static int playRandom(MatchCardGame g) {
@@ -185,9 +186,11 @@ public class PlayCard {
 
     // plays shuffled MatchCardGames of size 32 a total of N times using playRandom method
     // returns the average number of flips to complete the games
-    /*public static double randomMC(int N){
-        MatchCardGame g = new MatchCardGame(N);
+    public static double randomMC(int N){
+        int size = 32; // size of game
+        MatchCardGame g = new MatchCardGame(size);
         g.shuffleCards();
+        
         int counter = 0;
         int flips = 0;
 
@@ -198,5 +201,5 @@ public class PlayCard {
 
         return flips/N;
 
-    }*/
+    }
 }
