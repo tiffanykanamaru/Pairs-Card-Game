@@ -3,7 +3,6 @@ import java.util.Random;
 public class MatchCardGame {
 	// size of the game
 	public final int n;
-
 	// array of card information
 	private char cards[];
 	// card status (whether it is flipped or not)
@@ -20,9 +19,11 @@ public class MatchCardGame {
 	// stores the current card state
 	private char current;
 	private int indexCurrent;
-
+	// variable for formatting
 	private int count;
+	// variable for random number
 	private int random;
+	// temp variable for switching
 	private char temp;
 
 	// ctor, initializes a card game w/ total of n cards
@@ -58,7 +59,6 @@ public class MatchCardGame {
 				count = 0;
 				System.out.println();
 			}
-		
 		}
 		return "";
 
@@ -143,6 +143,4 @@ public class MatchCardGame {
 		}
 		
 	}
-
-
 }

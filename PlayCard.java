@@ -8,7 +8,7 @@ public class PlayCard {
         int n = 16; //game size
         MatchCardGame g1 = new MatchCardGame(n);
         //g1.shuffleCards();
-        
+        /*
         while(!g1.gameOver()) {
           //print board status
           System.out.println(g1.boardToString());
@@ -37,7 +37,7 @@ public class PlayCard {
         
         //Report the score
         System.out.println("The game took " + g1.getFlips() + " flips.");
-
+*/
         //Using the AIs
         int count;
 
@@ -52,10 +52,9 @@ public class PlayCard {
         System.out.println("The good AI took " + count + " flips.");
         
         //Using MCs
-        //int N = 1000;
-        int N = 10;
+        int N = 1000;
         System.out.println("The bad AI took " + randomMC(N) + " flips on average.");
-        //System.out.println("The good AI took " + goodMC(N) + " flips on average.");
+        System.out.println("The good AI took " + goodMC(N) + " flips on average.");
     }
     public static int playRandom(MatchCardGame g) {
     // used to decide which card to flip 
@@ -184,22 +183,41 @@ public class PlayCard {
         return g.getFlips();
     }
 
-    // plays shuffled MatchCardGames of size 32 a total of N times using playRandom method
-    // returns the average number of flips to complete the games
     public static double randomMC(int N){
-        int size = 32; // size of game
-        MatchCardGame g = new MatchCardGame(size);
-        g.shuffleCards();
-        
-        int counter = 0;
-        int flips = 0;
+        int size = 16; // size of game
+        int counter = 0; // counter for number of games
+        int avg = 0; // number to calculate average flips
 
-        while(counter <= 32){
-            flips = flips + playRandom(g);
+        MatchCardGame g2 = new MatchCardGame(size);
+        g2.shuffleCards();
+
+        while (counter < N){
+            avg = avg + playRandom(g2);
             counter++;
         }
 
-        return flips/N;
+        // calculate average flips to complete game
+        avg = avg/N;
 
+        return avg;
+    }
+
+    public static double goodMC(int N){
+        int size = 16; // size of game
+        int counter = 0; // counter for number of games
+        int avg = 0; // number to calculate average flips
+
+        MatchCardGame g2 = new MatchCardGame(size);
+        g2.shuffleCards();
+
+        while (counter < N){
+            avg = avg + playGood(g2);
+            counter++;
+        }
+
+        // calculate average flips to complete game
+        avg = avg/N;
+
+        return avg;
     }
 }
