@@ -7,7 +7,7 @@ public class PlayCard {
         
         int n = 16; //game size
         MatchCardGame g1 = new MatchCardGame(n);
-        g1.shuffleCards();
+        //g1.shuffleCards();
         
         while(!g1.gameOver()) {
           //print board status
@@ -52,7 +52,7 @@ public class PlayCard {
         System.out.println("The good AI took " + count + " flips.");
         
         //Using MCs
-        //int N = 1000;
+        int N = 1;
         //System.out.println("The bad AI took " + randomMC(N) + " flips on average.");
         //System.out.println("The good AI took " + goodMC(N) + " flips on average.");
     }
@@ -177,10 +177,26 @@ public class PlayCard {
 
                 // set match found back to false
                 matchFound = false;
-
             }
         }
 
         return g.getFlips();
     }
+
+    // plays shuffled MatchCardGames of size 32 a total of N times using playRandom method
+    // returns the average number of flips to complete the games
+    /*public static double randomMC(int N){
+        MatchCardGame g = new MatchCardGame(N);
+        g.shuffleCards();
+        int counter = 0;
+        int flips = 0;
+
+        while(counter <= 32){
+            flips = flips + playRandom(g);
+            counter++;
+        }
+
+        return flips/N;
+
+    }*/
 }
